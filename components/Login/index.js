@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react'
 
 import { Logo } from '../Logo'
-import firebase,{ persistenseMode } from './../../config/firebase'
+import { firebaseClient, persistenseMode } from './../../config/firebase'
 import { useEffect } from 'react'
 
 
@@ -36,11 +36,11 @@ export const Login = () => {
     isSubmitting
   } = useFormik({
     onSubmit: async (values, form)=>{
-      firebase.auth().setPersistence(persistenseMode)
+      firebaseClient.auth().setPersistence(persistenseMode)
       try{
-        const user = await firebase.auth().signInWithEmailAndPassword(values.email, values.password)
+        const user = await firebaseClient.auth().signInWithEmailAndPassword(values.email, values.password)
         console.log(user)
-        console.log(firebase.auth().currentUser)
+        console.log(firebaseClient.auth().currentUser)
       }catch(error) {
         console.log('ERROR:', error)
       }
@@ -54,7 +54,7 @@ export const Login = () => {
   })
   
   useEffect(()=>{
-    console.log('Sessão ativa?', firebase.auth().currentUser)
+    console.log('Sessão ativa?', firebaseClient.auth().currentUser)
   },[])
 
 
