@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react'
 
 import { Logo } from '../Logo'
-import { firebaseClient, persistenseMode } from './../../config/firebase'
+import { firebaseClient, persistenseMode } from './../../config/firebase/client'
 import { useEffect } from 'react'
 
 

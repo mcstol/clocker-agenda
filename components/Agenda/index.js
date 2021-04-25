@@ -1,5 +1,6 @@
 import { Button } from "@chakra-ui/react"
-import firebaseClient from '../../config/firebase/client'
+// import firebaseClient from '../../config/firebase/client'
+import { firebaseClient } from '../../config/firebase/client'
 
 export const Agenda = () => {
 
